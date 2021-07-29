@@ -17,7 +17,7 @@ export default {
     HelloWorld
   },
   mounted(){
-    axios.get('http://backend.test/api/test').then(res=>console.log(res.data));
+    axios.get('http://backend.test/api/auth/authenticated-user').then(res=>console.log(res.data));
   }
 }
 </script>
