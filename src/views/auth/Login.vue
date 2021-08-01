@@ -37,6 +37,7 @@
 <script>
 
 import axios from 'axios'
+import {showMessage} from '@/helpers'
 
 export default {
   data(){
@@ -50,15 +51,15 @@ export default {
       this.errors = {}
 
       axios.post(`${this.apiUrl}/auth/login`, this.formData).then(res=>{
-
-        this.$store.commit('setUserAndToken', res.data)
-        
+        this.$store.commit('setUser', res.data.user)
+        localStorage.setItem('token', res.data.access_token)
+        window.location.replace(window.location.origin + '/')
       }).catch(err=>{
 
         if(err.response.status == 422){
           this.errors = err.response.data.errors
         }
-        alert(err.response.data.message)
+        showMessage('error', err.response.data.message)
 
       })
     }

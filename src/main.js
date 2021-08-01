@@ -10,7 +10,8 @@ Vue.config.productionTip = false
 
 const axios = require('axios');
 
-axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.token}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${store.getters.token}`;
+
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = `http://localhost:8080`;
 
 

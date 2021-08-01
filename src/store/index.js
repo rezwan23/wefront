@@ -13,11 +13,8 @@ export default new Vuex.Store({
     storageUrl : 'http://backend.test/uploads'
   },
   mutations: {
-    setUserAndToken(state, data){
-      state.user = data.user
-      state.token = data.access_token
-      localStorage.setItem('token', data.access_token)
-      router.push({'name' : 'Home'})
+    setUser(state, user){
+      state.user = user
     },
     getToken(state){
       state.token = localStorage.getItem('token') || ''
@@ -38,6 +35,14 @@ export default new Vuex.Store({
           }
         })
       }
+    }
+  },
+  getters: {
+    token(state){
+      return state.token
+    },
+    user(state){
+      return state.user
     }
   }
 })
