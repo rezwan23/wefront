@@ -1,5 +1,9 @@
-# front
+# weDevsFontEnd
 
+- First change src/store/index.js
+```
+state.apiUrl = `${backend-origin}/api`
+```
 ## Project setup
 ```
 npm install
