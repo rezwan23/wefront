@@ -3,6 +3,7 @@
 - First change src/store/index.js
 ```
 state.apiUrl = `${backend-origin}/api`
+state.storageUrl = `${backend-aorigin}/uploads`
 ```
 ## Project setup
 ```
