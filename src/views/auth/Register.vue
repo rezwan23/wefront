@@ -64,7 +64,9 @@ export default {
 
       axios.post(`${this.apiUrl}/auth/register`, this.formData).then(res=>{
 
-        this.$store.commit('setUserAndToken', res.data)
+        this.$store.commit('setUser', res.data.user)
+        localStorage.setItem('token', res.data.access_token)
+        window.location.replace(window.location.origin + '/')
         
       }).catch(err=>{
 
